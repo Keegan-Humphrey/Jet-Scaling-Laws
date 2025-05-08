@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Compile Andrija's pythia code (with all relevant libraries etc.)
+
+if [ -f "generate_jets" ]; then
+    rm "generate_jets"
+fi
+
+g++ -std=c++11 -O2 Andrijas_pythia_script.cpp -o generate_jets  -I/home/keegan/pythia8/include/  /home/keegan/pythia8/lib/libpythia8.a  `fastjet-config --cxxflags --libs` -L/home/keegan/fastjet/lib -lfastjet -lfastjettools
+
+echo "go make you some jets gurl"
+
+#./generate_jets
+
+#echo "made you some jets gurl"
